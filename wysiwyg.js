@@ -50,11 +50,11 @@ for(person in famousPeeps) {
 var input = document.getElementById("input");
 
 function handleClick(event) {
-	console.log(event);
 	for(p in peopleClass) {
-		peopleClass.item(p).classList.remove("clicked");
+		peopleClass.item(p).classList.remove("clicked"); //remove clicked status from all people cards
 	}
 	event.target.parentElement.classList.add("clicked");
+	input.value = '';
 	function keypress(keyin) {
 		if(keyin.keyCode == 13) {
 			input.removeEventListener("keyup", keypress)
@@ -62,7 +62,7 @@ function handleClick(event) {
 			input.value = "";
 		}
 		else{
-			event.target.parentElement.children[1].innerHTML = keyin.target.value;
+			document.querySelector('.clicked').children[1].innerHTML = keyin.target.value;
 		}
 	}
 	input.addEventListener("keyup", keypress);
